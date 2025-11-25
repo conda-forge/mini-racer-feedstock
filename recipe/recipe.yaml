@@ -33,7 +33,7 @@ requirements:
     - if: not win
       then: pkg-config
     - six
-    - gsutil
+    - gsutil >=5.35
   host:
     - python
     - hatchling
