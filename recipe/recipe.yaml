@@ -14,7 +14,7 @@ source:
 
 build:
   number: 1
-   skip: match(python, "<3.13") #3.14 doesn't seem te be supported by chromium yet
+  skip: match(python, "<3.13") #3.14 doesn't seem te be supported by chromium yet
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
