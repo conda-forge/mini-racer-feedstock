@@ -14,7 +14,6 @@ source:
 
 build:
   number: 1
-  skip: match(python, ">3.13") #gsutil isn't yet avalaible for 3.14
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
@@ -33,7 +32,7 @@ requirements:
     - if: not win
       then: pkg-config
     - six
-    - gsutil >=5.35
+    - gsutil >=5.31
   host:
     - python
     - hatchling
