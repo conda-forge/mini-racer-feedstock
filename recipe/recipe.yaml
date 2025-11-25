@@ -34,7 +34,7 @@ requirements:
     - six
     - gsutil
   host:
-    - python
+    - python [py>313]
     - hatchling
     - hatch-fancy-pypi-readme
     - hatch-mkdocs
