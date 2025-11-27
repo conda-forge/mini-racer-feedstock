@@ -11,7 +11,7 @@ Summary: Minimal, modern embedded V8 for Python.
 
 Development: https://github.com/bpcreech/PyMiniRacer
 
-Current build status
+C
 ====================
 
 
