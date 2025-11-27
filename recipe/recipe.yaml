@@ -32,17 +32,16 @@ requirements:
     - if: not win
       then: pkg-config
     - six
-    - gsutil >=5.31
+    - gsutil >=5.35
   host:
     - python
     - hatchling
     - hatch-fancy-pypi-readme
     - hatch-mkdocs
     - pip
-    - httplib2  #Version required by gsutil 
+    - httplib2 ==0.20.4 #Version required by gsutil 
     - packaging
     - six
-    - gsutil >=5.31
   run:
     - python
 
