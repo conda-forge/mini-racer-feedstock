@@ -32,7 +32,7 @@ requirements:
     - if: not win
       then: pkg-config
     - six
-    - gsutil >=3.1
+    - gsutil >=5.31
   host:
     - python
     - hatchling
@@ -42,7 +42,7 @@ requirements:
     - httplib2  #Version required by gsutil 
     - packaging
     - six
-    - gsutil >=3.1
+    - gsutil >=5.31
   run:
     - python
 
