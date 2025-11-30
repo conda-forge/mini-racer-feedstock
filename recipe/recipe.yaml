@@ -33,6 +33,7 @@ requirements:
       then: pkg-config
     - six
     - gsutil >=5.35
+    - configparser
   host:
     - python
     - hatchling
@@ -43,6 +44,7 @@ requirements:
     - packaging
     - six
     - gsutil >=5.35
+    - configparser
   run:
     - python
 
