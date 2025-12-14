@@ -22,14 +22,10 @@ build:
 
 requirements:
   build:
-    - python <3.12
+    - python <3.12 #See GoogleCloudPlatform/gcs-oauth2-boto-plugin#75 and GoogleCloudPlatform/gsutil#1888
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler("cxx") }}
-    - if: build_platform != target_platform
-      then: 
-        - cross-python_${{ target_platform }}
-        - python
     - if: not win
       then: pkg-config
     - six
@@ -40,7 +36,7 @@ requirements:
     - hatch-fancy-pypi-readme
     - hatch-mkdocs
     - pip
-    - httplib2 <0.30.0  #Apparent issues with httplib2
+    - httplib2 <0.30.0  #Apparent issues with httplib2 and gstuil
     - packaging
     - six
   run:
