@@ -30,7 +30,9 @@ requirements:
         - cross-python_${{ target_platform }}
         - python
     - if: not win
-      then: pkg-config
+      then:
+        -  pkg-config
+        - python <3.12
     - six
     - gsutil
   host:
