@@ -13,7 +13,7 @@ source:
   sha256: 84c67553ce9f3736d4c617d8a3f882949d37a46cfb47fe11dab33dd6704e62a4
 
 build:
-  number: 1
+  number: 2
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
@@ -30,13 +30,15 @@ requirements:
       then: pkg-config
     - six
     - gsutil
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
   host:
     - python
     - hatchling
     - hatch-fancy-pypi-readme
     - hatch-mkdocs
     - pip
-    - httplib2 <0.30.0  #Apparent issues with httplib2 and gstuil
+    - httplib2 <0.30.0  #Apparent issues with httplib2 and gsutil
     - packaging
     - six
   run:
