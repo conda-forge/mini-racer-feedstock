@@ -32,11 +32,10 @@ requirements:
     - gsutil
   host:
     - python
-    - setuptools>=80.9
-    - hatch-fancy-pypi-readme
+    - setuptools >=80.9
     - mkdocs >=1.6.1
     - pip
-    - httplib2==0.22.0
+    - httplib2 ==0.22.0
     - packaging
     - six
   run:
