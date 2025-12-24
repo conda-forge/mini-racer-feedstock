@@ -32,11 +32,11 @@ requirements:
     - gsutil
   host:
     - python
-    - hatchling
+    - setuptools>=80.9
     - hatch-fancy-pypi-readme
-    - hatch-mkdocs
+    - mkdocs >=1.6.1
     - pip
-    - httplib2 <0.30.0  #Apparent issues with httplib2 and gstuil
+    - httplib2==0.22.0
     - packaging
     - six
   run:
@@ -46,6 +46,7 @@ tests:
   - python:
       imports:
         - py_mini_racer
+        - v8_py_frontend
       pip_check: true
 
 about:
