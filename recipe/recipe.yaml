@@ -39,6 +39,9 @@ requirements:
     - packaging
     - six
     - wheel
+    - mdformat >=1.0.0
+    - mypy >=1.19.0
+    - ruff >=0.14.8
   run:
     - python
 
