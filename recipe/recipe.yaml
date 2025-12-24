@@ -38,6 +38,7 @@ requirements:
     - httplib2 ==0.22.0
     - packaging
     - six
+    - wheel
   run:
     - python
 
