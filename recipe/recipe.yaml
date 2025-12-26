@@ -47,7 +47,7 @@ requirements:
     - ruff >=0.14.8
     - rust-just >=1.43.1
     - setuptools >=80.9.0
-    - types-setuptools >=80.9.0.20250822,
+    - types-setuptools >=80.9.0
   run:
     - python
 
