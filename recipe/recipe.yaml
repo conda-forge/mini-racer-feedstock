@@ -45,7 +45,7 @@ requirements:
     - mkdocstrings >=1.0.0
     - mypy >=1.19.0
     - ruff >=0.14.8
-    - rust-just >=1.43.1
+    - just >=1.43.1
     - setuptools >=80.9.0
     - types-setuptools >=80.9.0
   run:
