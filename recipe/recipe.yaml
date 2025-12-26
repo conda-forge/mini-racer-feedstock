@@ -39,15 +39,15 @@ requirements:
     - httplib2 =0.22.0
     - packaging >=25.0 
     - six
-    - mdformat>=1.0.0
-    - mkdocs>=1.6.1
+    - mdformat >=1.0.0
+    - mkdocs >=1.6.1
     - mkdocs-material >=9.7.0
     - mkdocstrings >=1.0.0
     - mypy >=1.19.0
     - ruff >=0.14.8
     - rust-just >=1.43.1
     - setuptools >=80.9.0
-    - types-setuptools >=80.9.0.20250822",
+    - types-setuptools >=80.9.0.20250822,
   run:
     - python
 
