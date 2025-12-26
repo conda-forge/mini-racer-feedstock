@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mini-racer
-  version: 0.12.4
+  version: "0.13.2"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mini_racer-${{ version }}.tar.gz
-  sha256: 84c67553ce9f3736d4c617d8a3f882949d37a46cfb47fe11dab33dd6704e62a4
+  sha256: b93b28d74008f4ce084292a9c3b2057283ceaa3057c1aef71cb3f86874c0c6d7
 
 build:
-  number: 1
+  number: 0
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
