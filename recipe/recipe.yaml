@@ -48,6 +48,7 @@ requirements:
     - just >=1.43.1
     - setuptools >=80.9.0
     - types-setuptools >=80.9.0
+    - wheel
   run:
     - python
 
