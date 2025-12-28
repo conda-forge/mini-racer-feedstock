@@ -9,15 +9,16 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mini_racer-${{ version }}.tar.gz
-  sha256: b93b28d74008f4ce084292a9c3b2057283ceaa3057c1aef71cb3f86874c0c6d7
+  url: https://github.com/bpcreech/PyMiniRacer/archive/refs/tags/v${{version}}.tar.gz
+  sha256: d80948ddf1c6d2ffdb8e9e3d698ced2c9f3277484975582c0434e6fa913817cb
 
 build:
   number: 0
-  script: ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
+  script:
+    - just build-dll
+    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
-
 
 
 requirements:
@@ -30,6 +31,7 @@ requirements:
       then: pkg-config
     - six
     - gsutil
+    - just
   host:
     - python
     - pip
