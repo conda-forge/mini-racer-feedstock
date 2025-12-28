@@ -21,6 +21,7 @@ build:
     binary_relocation: ${{ false if osx else true }}
 
 
+
 requirements:
   build:
     - python <3.12 #See GoogleCloudPlatform/gcs-oauth2-boto-plugin#75 and GoogleCloudPlatform/gsutil#1888
