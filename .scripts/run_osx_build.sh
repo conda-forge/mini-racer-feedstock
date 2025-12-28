@@ -24,7 +24,7 @@ micromamba_exe="$(mktemp -d)/micromamba"
 curl -L -o "${micromamba_exe}" "${MICROMAMBA_URL}"
 chmod +x "${micromamba_exe}"
 echo "Creating environment"
-"${micromamba_exe}" create --yes --root-prefix "${MAMBA_ROOT_PREFIX}" --prefix "${MINIFORGE_HOME}" \
+"${micromamba_exe}" create --yes --root-prefix "${MAMBA_ROOT_PREFIX}" --prefix "${MINIFORGE_HOME}" 
   --channel conda-forge \
   pip rattler-build conda-forge-ci-setup=4 "conda-build>=24.1"
 echo "Moving pkgs cache from ${MAMBA_ROOT_PREFIX} to ${MINIFORGE_HOME}"
