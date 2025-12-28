@@ -33,6 +33,7 @@ requirements:
     - six
     - gsutil
     - just
+    - uv
   host:
     - python
     - pip
