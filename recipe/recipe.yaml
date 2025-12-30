@@ -15,6 +15,7 @@ source:
 build:
   number: 0
   script:
+    - just fix
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
