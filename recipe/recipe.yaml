@@ -24,22 +24,11 @@ build:
 
 requirements:
   build:
-    - python <3.12 #See GoogleCloudPlatform/gcs-oauth2-boto-plugin#75 and GoogleCloudPlatform/gsutil#1888
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler("cxx") }}
     - if: not win
       then: pkg-config
-    - six
-    - gsutil
-    - just
-    - uv
-    - wheel
-    - httplib2 =0.22.0
-    - setuptools >=80.9.0
-    - types-setuptools >=80.9.0
-    - babel
-    - rust
   host:
     - python
     - pip
