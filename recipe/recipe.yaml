@@ -39,7 +39,7 @@ requirements:
     - setuptools >=80.9.0
     - types-setuptools >=80.9.0
     - babel
-    - rust-just
+    - rust
   host:
     - python
     - pip
