@@ -36,6 +36,10 @@ requirements:
     - uv
     - wheel
     - httplib2 =0.22.0
+    - setuptools >=80.9.0
+    - types-setuptools >=80.9.0
+    - babel
+    - rust-just
   host:
     - python
     - pip
