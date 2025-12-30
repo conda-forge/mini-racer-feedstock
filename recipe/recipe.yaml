@@ -34,8 +34,8 @@ requirements:
     - gsutil
     - just
     - uv
-    - if: osx
-      then: ninja
+    - wheel
+    - httplib2 =0.22.0
   host:
     - python
     - pip
