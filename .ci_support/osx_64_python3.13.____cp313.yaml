@@ -10,7 +10,6 @@ c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
 - '10.13'
-- '11.0'
 channel_sources:
 - conda-forge
 channel_targets:
