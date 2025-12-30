@@ -24,6 +24,10 @@ build:
 
 requirements:
   build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}}}
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler("cxx") }}
@@ -31,9 +35,7 @@ requirements:
     - uv
     - if: not win
       then: pkg-config
-    - if: build_platform != target_platform
-      then: 
-        - cross-python_${{ target_platform }}
+
   host:
     - python
     - pip
