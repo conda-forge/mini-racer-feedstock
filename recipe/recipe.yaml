@@ -27,6 +27,8 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler("cxx") }}
+    - just
+    - uv
     - if: not win
       then: pkg-config
   host:
@@ -35,9 +37,13 @@ requirements:
     - httplib2 =0.22.0
     - packaging >=25.0 
     - six
-    - setuptools >=80.9.0
+    - setuptools =80.9.0
     - types-setuptools >=80.9.0
     - wheel
+    - just
+    - rust
+    - babel
+    - mypy
   run:
     - python
 
