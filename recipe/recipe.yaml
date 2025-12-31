@@ -16,7 +16,7 @@ build:
   number: 0
   script:
     - if: osx
-      then: just clang-tidy
+      then: just fix
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
@@ -40,7 +40,9 @@ requirements:
         - pkg-config
         - google-cloud-sdk
     - if: osx
-      then: clangdev
+      then: 
+        - clangdev
+        - nodejs
 
   host:
     - python
