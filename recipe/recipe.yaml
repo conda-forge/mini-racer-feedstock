@@ -39,6 +39,8 @@ requirements:
       then:
         - pkg-config
         - google-cloud-sdk
+    - if: osx
+      then: clang-dev
 
   host:
     - python
