@@ -15,8 +15,6 @@ source:
 build:
   number: 0
   script:
-    - if: osx
-      then: just fix
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
@@ -35,14 +33,6 @@ requirements:
     - ${{ compiler("cxx") }}
     - just
     - uv
-    - if: not win
-      then:
-        - pkg-config
-        - google-cloud-sdk
-    - if: osx
-      then: 
-        - clangdev
-        - nodejs
 
   host:
     - python
