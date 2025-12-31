@@ -15,9 +15,6 @@ source:
 build:
   number: 0
   script:
-    - if: osx
-      then:
-        - xcode-select --install
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
