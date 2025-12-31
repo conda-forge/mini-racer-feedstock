@@ -40,7 +40,7 @@ requirements:
         - pkg-config
         - google-cloud-sdk
     - if: osx
-      then: clang-dev
+      then: clangdev
 
   host:
     - python
