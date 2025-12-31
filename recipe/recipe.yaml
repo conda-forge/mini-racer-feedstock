@@ -15,8 +15,6 @@ source:
 build:
   number: 0
   script:
-    - if: osx
-      then: export SDKROOT=CONDA_BUILD_SYSROOT
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
