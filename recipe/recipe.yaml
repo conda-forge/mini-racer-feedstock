@@ -34,7 +34,9 @@ requirements:
     - just
     - uv
     - if: not win
-      then: pkg-config
+      then:
+        - pkg-config
+        - google-cloud-sdk
 
   host:
     - python
