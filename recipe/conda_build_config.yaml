@@ -1,4 +1,0 @@
-MACOSX_SDK_VERSION:        # [osx]
-  - "15.5"                # [osx]
-MACOSX_DEPLOYMENT_TARGET:      # [osx]
-  - "15.6"                       # [osx]

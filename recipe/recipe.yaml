@@ -34,6 +34,8 @@ requirements:
       then: pkg-config
     - just
     - uv
+    - if: osx
+      then: macosx_deployment_target
 
   host:
     - python
