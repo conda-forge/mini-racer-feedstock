@@ -9,7 +9,7 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mini_racer-${{ version }}.tar.gz
+  url: https://github.com/bpcreech/PyMiniRacer/archive/refs/tags/v${{ version }}.tar.gz
   sha256: e55d0123b095032a361bbd80ee2e7d53a98a624313496dc7c258de7df0e487a6
 
 build:
