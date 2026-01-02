@@ -15,7 +15,7 @@ source:
 build:
   number: 0
   script: 
-    - if:osx
+    - if: osx
       then: export SDKROOT=$(xcrun --show-sdk-path --sdk macosx)
     - ${{ PYTHON }} builder/v8_build.py 
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
