@@ -18,7 +18,7 @@ build:
     - if: osx
       then: 
         - uv add clang==19.1.7 --no-install-project 
-        - uv lock --no-install-project 
+        - uv lock
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
