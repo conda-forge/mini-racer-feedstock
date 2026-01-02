@@ -1,0 +1,25 @@
+From 776e494d67e6307d678c61c93712bcc7202b4381 Mon Sep 17 00:00:00 2001
+From: HeavyTony2 <97621927+HeavyTony2@users.noreply.github.com>
+Date: Fri, 2 Jan 2026 17:11:07 -0500
+Subject: [PATCH 2/2] Update v8_build.py
+
+---
+ builder/v8_build.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/builder/v8_build.py b/builder/v8_build.py
+index 090bb8c..bce8fbf 100644
+--- a/builder/v8_build.py
++++ b/builder/v8_build.py
+@@ -274,7 +274,7 @@ def run_build(build_dir: Path, args: Args) -> None:
+     run(
+         executable,
+         str(get_depot_tools_path() / "ninja.py"),
+-        # "-vv",  # too much spam for GitHub Actions
++        "-vv",
+         "-C",
+         str(build_dir),
+         str(Path("custom_deps") / "mini_racer"),
+-- 
+2.51.0.windows.1
+
