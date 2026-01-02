@@ -16,9 +16,6 @@ source:
 build:
   number: 0
   script: 
-    - if: osx
-      then: 
-        - export LDFLAGS="${LDFLAGS} -mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
