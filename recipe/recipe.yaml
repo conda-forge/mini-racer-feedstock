@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/bpcreech/PyMiniRacer/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: e55d0123b095032a361bbd80ee2e7d53a98a624313496dc7c258de7df0e487a6
+  sha256: 569449c0a34028761b71c4cab0103e9628bb75f5d4a1e1ffcfd1416ca09e83f1
 
 build:
   number: 0
