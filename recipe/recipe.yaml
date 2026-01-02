@@ -16,7 +16,7 @@ build:
   number: 0
   script: 
     - if: osx
-      then: uv add clang==19.1.7
+      then: uv --verbose run builder/v8_build.py 
     - ${{ PYTHON }} builder/v8_build.py 
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
@@ -32,6 +32,7 @@ requirements:
     - if: not win
       then: pkg-config
     - six
+    - uv
   host:
     - python
     - setuptools >=80.9
