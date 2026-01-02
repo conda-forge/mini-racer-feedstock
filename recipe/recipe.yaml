@@ -34,8 +34,10 @@ requirements:
       then: pkg-config
     - just
     - uv
-    - if: osx
-      then: macosx_deployment_target
+    - if: osx and x86_64
+      then: macosx_deployment_target =15.6
+    - if: osx and arm64
+      then: macosx_deployment_target_osx-arm64 =15.6
 
   host:
     - python
