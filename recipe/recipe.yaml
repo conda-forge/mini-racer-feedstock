@@ -16,7 +16,7 @@ build:
   number: 0
   script: 
     - if: osx
-      then: export SDKROOT=$(xcrun --show-sdk-path --sdk macosx)
+      then: uv add clang==19.1.7
     - ${{ PYTHON }} builder/v8_build.py 
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
