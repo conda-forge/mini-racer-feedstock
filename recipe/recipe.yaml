@@ -35,9 +35,13 @@ requirements:
     - just
     - uv
     - if: osx and x86_64
-      then: macosx_deployment_target =15.6
+      then:
+       - macosx_deployment_target =15.6
+       - sysroot
     - if: osx and arm64
-      then: macosx_deployment_target_osx-arm64 =15.6
+      then:
+       - macosx_deployment_target_osx-arm64 =15.6
+       - sysroot
 
   host:
     - python
