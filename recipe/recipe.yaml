@@ -17,11 +17,12 @@ build:
   script: 
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
-  dynamic_linking:
-    binary_relocation: ${{ false if osx else true }}
   patches: 
     - if: osx
-      then: 0001-Update-v8_build.py.patch
+      then: 0001-Update-v8_build.py.patch 
+  dynamic_linking:
+    binary_relocation: ${{ false if osx else true }}
+
 
 requirements:
   build:
