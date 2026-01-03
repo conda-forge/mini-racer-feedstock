@@ -32,7 +32,8 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler("cxx") }}
-    - pkg-config # [unix]
+    - if: unix
+      then: pkg-config
     - just
     - uv
 
@@ -49,8 +50,10 @@ requirements:
     - rust
     - babel
     - mypy
-    - __linux  # [linux]
-    - __win    # [win]
+    - if: linux
+      then: __linux
+    - if: win
+      then: __win 
   run:
     - python >=${{ python_min }}
 
