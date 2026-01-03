@@ -16,3 +16,9 @@ conda_install_tool: pixi
 azure:
   free_disk_space: true
   max_parallel: 35
+noarch_platforms:
+  - linux_64
+  - win_64
+  - linux_ppc64le
+  - linux_aarch64
+  
