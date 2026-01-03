@@ -16,6 +16,7 @@ source:
 build:
   noarch: python
   number: 0
+  string: ${{ 'win_pyh${{ PKG_HASH }}_${{ PKG_BUILDNUM }}' if win else 'linux_pyh${{ PKG_HASH }}_${{ PKG_BUILDNUM }}' if linux else '' }}
   script: 
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
