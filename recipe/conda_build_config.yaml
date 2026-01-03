@@ -1,4 +1,0 @@
-c_stdlib:
-    - sysroot_linux-aarch64 # [aarch64]
-    - sysroot_linux-ppc64le # [ppc64le]
-    - sysroot_linux # [linux64]
