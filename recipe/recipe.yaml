@@ -15,7 +15,7 @@ source:
 
 build:
   number: 0
-  string: ${{ 'win_pyh${{ PKG_HASH }}_${{ PKG_BUILDNUM }}' if win else 'linux_pyh${{ PKG_HASH }}_${{ PKG_BUILDNUM }}' if linux else '' }}
+  skip: osx #requires further investigation
   script: 
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
@@ -32,7 +32,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler("cxx") }}
-    - if: unix
+    - if: not win
       then: pkg-config
     - just
     - uv
@@ -50,10 +50,6 @@ requirements:
     - rust
     - babel
     - mypy
-    - if: linux
-      then: __linux
-    - if: win
-      then: __win 
   run:
     - python
 
@@ -62,7 +58,7 @@ tests:
       imports:
         - py_mini_racer
       pip_check: true
-      python_version: ${{ python_min }}.*
+
 about:
   summary: Minimal, modern embedded V8 for Python.
   license: ISC
