@@ -14,7 +14,6 @@ source:
 
 
 build:
-  noarch: python
   number: 0
   string: ${{ 'win_pyh${{ PKG_HASH }}_${{ PKG_BUILDNUM }}' if win else 'linux_pyh${{ PKG_HASH }}_${{ PKG_BUILDNUM }}' if linux else '' }}
   script: 
@@ -28,7 +27,7 @@ requirements:
   build:
     - if: build_platform != target_platform
       then:
-        - python ${{ python_min }}*
+        - python
         - cross-python_${{ target_platform }}
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
@@ -39,7 +38,7 @@ requirements:
     - uv
 
   host:
-    - python ${{ python_min }}*
+    - python
     - pip
     - httplib2 =0.22.0
     - packaging >=25.0 
@@ -56,7 +55,7 @@ requirements:
     - if: win
       then: __win 
   run:
-    - python >=${{ python_min }}
+    - python
 
 tests:
   - python:
