@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mini-racer
-  version: "0.13.2"
+  version: "0.14.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,13 +10,13 @@ package:
 
 source:
   url: https://github.com/bpcreech/PyMiniRacer/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: d80948ddf1c6d2ffdb8e9e3d698ced2c9f3277484975582c0434e6fa913817cb
+  sha256: 51028ec0bb267abc4537bcb90dc5b236273cefde0566ca368bec09e362c4a477
 
 
 build:
   number: 0
   skip: osx #requires further investigation
-  script: 
+  script:
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
  # dynamic_linking:
@@ -41,7 +41,7 @@ requirements:
     - python
     - pip
     - httplib2 =0.22.0
-    - packaging >=25.0 
+    - packaging >=25.0
     - six
     - setuptools =80.9.0
     - types-setuptools >=80.9.0
