@@ -18,7 +18,7 @@ build:
   script:
     - if: osx
       then:
-        - just build-dll "--ios_sdk_version =22"
+        - just build-dll "--ios_sdk_version =26"
       else:
         - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
