@@ -16,7 +16,11 @@ source:
 build:
   number: 1
   script:
-    - just build-dll
+    - if: osx
+      then:
+        - just build-dll "--ios_sdk_version =22"
+      else:
+        - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
