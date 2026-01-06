@@ -18,7 +18,7 @@ build:
   script:
     - if: osx
       then:
-        - uv run mac_toolchain.py
+        - just git-config-global
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
