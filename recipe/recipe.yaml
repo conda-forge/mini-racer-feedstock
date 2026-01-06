@@ -18,7 +18,7 @@ build:
   script:
     - if: osx
       then:
-        - export MD_APPLE_SDK_ROOT=/Applications/Xcode_26.0.app
+        - just clang-tidy
         - just build-dll  "--out-path=_dll"
       else:
         - just build-dll
@@ -40,6 +40,8 @@ requirements:
       then: pkg-config
     - just
     - uv
+    - if: osx
+      then: clangdev
 
   host:
     - python
