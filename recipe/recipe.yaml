@@ -14,13 +14,12 @@ source:
 
 
 build:
-  number: 0
-  skip: osx #requires further investigation
+  number: 2
   script:
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
- # dynamic_linking:
- #   binary_relocation: ${{ false if osx else true }}
+  dynamic_linking:
+    binary_relocation: ${{ false if osx else true }}
 
 
 requirements:
