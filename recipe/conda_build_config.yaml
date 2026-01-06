@@ -1,4 +1,2 @@
 MACOSX_SDK_VERSION:        # [osx]
   - "26"                # [osx]
-MACOSX_DEPLOYMENT_TARGET:        # [osx]
-  - "15"                # [osx]

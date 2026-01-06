@@ -13,16 +13,12 @@ source:
   sha256: 51028ec0bb267abc4537bcb90dc5b236273cefde0566ca368bec09e362c4a477
   patches: 
     - if: osx
-      then: 0001-Update-v8_build.py.patch 
+      then: 0001-Update-v8_build.py.patch #12.6 is the last known version that was buildable
 
 build:
   number: 1
   script:
-    - if: osx
-      then:
-        - just build-dll  "--out-path=_dll"
-      else:
-        - just build-dll
+    - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
