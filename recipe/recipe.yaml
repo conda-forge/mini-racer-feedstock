@@ -14,7 +14,7 @@ source:
 
 
 build:
-  number: 2
+  number: 1
   script:
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
