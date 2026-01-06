@@ -18,9 +18,8 @@ build:
   script:
     - if: osx
       then:
-        - just build-dll "--fetch-only"
-      else:
-        - just build-dll
+        - export ios_sdk_version=${{ MACOSX_SDK_VERSION}}
+    - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
