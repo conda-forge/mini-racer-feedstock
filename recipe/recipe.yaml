@@ -18,11 +18,10 @@ build:
   script:
     - if: osx
       then:
-        - just clang-tidy
         - just build-dll  "--out-path=_dll"
       else:
         - just build-dll
-        - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
+    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
 
@@ -40,8 +39,6 @@ requirements:
       then: pkg-config
     - just
     - uv
-    - if: osx
-      then: clangdev
 
   host:
     - python
