@@ -18,9 +18,11 @@ build:
   script:
     - if: osx
       then:
-        - just git-config-global
-    - just build-dll
-    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
+        - export MD_APPLE_SDK_ROOT=/Applications/Xcode_26.0.app
+        - just build-dll  "--out-path=_dll"
+      else:
+        - just build-dll
+        - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
 
