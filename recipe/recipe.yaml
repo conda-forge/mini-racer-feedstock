@@ -25,7 +25,7 @@ build:
        - just build-dll "--target-cpu=ppc64"
     - if: target_platform == "linux-aarch64"
       then: 
-       - just build-dll "--aarch64_musl_compat"
+       - just build-dll "--aarch64-musl-compat"
     - if: build_platform == target_platform
       then: 
        - just build-dll
