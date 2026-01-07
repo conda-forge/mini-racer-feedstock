@@ -14,7 +14,7 @@ source:
   patches: 
     - if: osx
       then: 0001-Update-v8_build.py.patch
-      
+build:     
   number: 1
   script:
     - if: target_platform == "osx-arm64"
