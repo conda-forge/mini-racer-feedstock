@@ -23,7 +23,11 @@ build:
      then: just build-dll "--target-cpu=ppc64"
    - if: target_platform == "linux_aarch64"
      then: just build-dll "--aarch64_musl_compat"
-   - if: build_platform = target_platform
+   - if: osx_64
+     then: just build-dll
+   - if: win
+     then: just build-dll
+   - if: linux_64
      then: just build-dll
    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
