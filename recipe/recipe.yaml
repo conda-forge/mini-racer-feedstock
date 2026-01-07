@@ -17,13 +17,13 @@ source:
 build:     
   number: 1
   script:
-   - if: osx_arm64
+   - if: target_platform == "osx_arm64"
      then: just build-dll "--target-cpu=arm64"
-   - if: linux_ppc64
+   - if: target_platform == "linux-ppc64"
      then: just build-dll "--target-cpu=ppc64"
-   - if: linux_aarc64
+   - if: target_platform == "linux_aarch64
      then: just build-dll "--aarch64_musl_compat"
-   - if: linux_64 or win or osx_64
+   - if: build_platform = target_platform
      then: just build-dll
    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
