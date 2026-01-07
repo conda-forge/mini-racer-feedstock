@@ -17,13 +17,13 @@ source:
 build:     
   number: 1
   script:
-    - if: target_platform == "osx_arm64"
+    - if: target_platform == "osx-arm64"
       then: 
        - just build-dll "--target-cpu=arm64"
-    - if: target_platform == "linux_ppc64"
+    - if: target_platform == "linux-ppc64le"
       then: 
        - just build-dll "--target-cpu=ppc64"
-    - if: target_platform == "linux_aarch64"
+    - if: target_platform == "linux-aarch64"
       then: 
        - just build-dll "--aarch64_musl_compat"
     - if: build_platform == target_platform
