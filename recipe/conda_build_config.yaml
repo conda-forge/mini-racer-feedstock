@@ -1,2 +1,6 @@
 MACOSX_SDK_VERSION:        # [osx]
   - "26"                # [osx]
+special_args:
+   - "--target-cpu=arm64" # [osx_arm64]
+   - "--target-cpu=ppc64"  # [linux_ppc64]
+   - "--aarch64_musl_compat" # [linux_aarch64]
