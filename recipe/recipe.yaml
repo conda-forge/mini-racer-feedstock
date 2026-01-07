@@ -22,7 +22,7 @@ build:
        - just build-dll "--target-cpu=arm64"
     - if: target_platform == "linux-ppc64le"
       then: 
-       - just build-dll "--target-cpu=ppc64"
+       - just build-dll "--target-cpu=ppc64le"
     - if: target_platform == "linux-aarch64"
       then: 
        - just build-dll "--aarch64-musl-compat"
