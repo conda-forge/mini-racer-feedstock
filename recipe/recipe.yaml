@@ -17,8 +17,15 @@ source:
 build:     
   number: 1
   script:
-    - just build-dll ${{ special_args }}
-    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
+   - if: osx_arm64
+     then: just build-dll "--target-cpu=arm64"
+   - if: linux_ppc64
+     then: just build-dll "--target-cpu=ppc64"
+   - if: linux_aarc64
+     then: just build-dll "--aarch64_musl_compat"
+   - if: linux_64 or win or osx_64
+     then: just build-dll
+   - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
 
