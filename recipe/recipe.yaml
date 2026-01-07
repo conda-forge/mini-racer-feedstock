@@ -18,8 +18,10 @@ source:
   number: 1
   script:
     - if: target_platform == "osx-arm64"
-      then: - just build-dll "--target-cpu=arm64"
-      else: - just build-dll
+      then: 
+        - just build-dll "--target-cpu=arm64"
+      else: 
+        - just build-dll
     - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
