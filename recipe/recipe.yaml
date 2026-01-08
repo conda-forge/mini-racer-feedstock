@@ -40,7 +40,9 @@ requirements:
     - if: not win
       then: pkg-config
     - if: target_platform == "osx-arm64"
-      then: uv
+      then:
+        - just
+        - uv
   host:
     - python
     - pip
@@ -54,9 +56,10 @@ requirements:
     - rust
     - babel
     - mypy
-    - just
     - if: target_platform != "osx-arm64"
-      then: uv
+      then:
+        - just
+        - uv
   run:
     - python
 
