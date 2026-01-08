@@ -15,7 +15,7 @@ source:
     - if: osx
       then: 0001-Update-v8_build.py.patch
 build:     
-  number: 1
+  number: 2
   script:
     - if: target_platform == "osx-arm64"
       then: 
@@ -46,8 +46,6 @@ requirements:
     - ${{ compiler("cxx") }}
     - if: not win
       then: pkg-config
-    - just
-    - uv
 
   host:
     - python
@@ -62,6 +60,8 @@ requirements:
     - rust
     - babel
     - mypy
+    - just
+    - pixi
   run:
     - python
 
