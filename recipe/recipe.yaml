@@ -39,7 +39,7 @@ requirements:
     - ${{ compiler("cxx") }}
     - if: not win
       then: pkg-config
-   - if: target_platform == "osx-arm64"
+    - if: target_platform == "osx-arm64"
       then: uv
   host:
     - python
@@ -55,7 +55,7 @@ requirements:
     - babel
     - mypy
     - just
-   - if: target_platform != "osx-arm64"
+    - if: target_platform != "osx-arm64"
       then: uv
   run:
     - python
