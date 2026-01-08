@@ -16,7 +16,7 @@ index e18696d..1b30d2e 100644
              executable,
              "build/linux/sysroot_scripts/install-sysroot.py",
 -            "--arch=" + target_cpu,
-+            "--arch=ppc64el" "--rust_target_arch=powerpc64le",
++            "--arch=ppc64el --rust_target_arch=powerpc64le",
              cwd=get_v8_path(),
          )
  
