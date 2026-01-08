@@ -18,7 +18,6 @@ build:
   number: 2
   script:
     - uv lock
-    - uv sync
     - if: target_platform == "osx-arm64"
       then: 
        - just build-dll "--target-cpu=arm64"
