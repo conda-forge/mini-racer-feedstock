@@ -21,8 +21,14 @@ build:
     - if: target_platform == "osx-arm64"
       then: 
        - just build-dll "--target-cpu=arm64"
-      else: 
-       - just build-dll
+    - if: target_platform == "linux-ppc64le"
+      then: 
+       - just build-dll "--target-cpu=ppc64le"
+    - if: target_platform == "linux-aarch64"
+      then: 
+       - just build-dll "--target-cpu=aarch64"
+    - if: build_platform == target_platform
+      then: 
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
