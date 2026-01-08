@@ -61,7 +61,7 @@ requirements:
     - babel
     - mypy
     - just
-    - pixi
+    - uv
   run:
     - python
 
