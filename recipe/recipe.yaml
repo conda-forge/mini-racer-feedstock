@@ -47,7 +47,6 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler("cxx") }}
-    - llvm
     - if: not win
       then: pkg-config
     - if: target_platform == "osx-arm64"
@@ -67,7 +66,6 @@ requirements:
     - rust
     - babel
     - mypy
-    - llvm
     - if: target_platform != "osx-arm64"
       then:
         - just
