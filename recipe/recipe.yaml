@@ -23,7 +23,7 @@ build:
        - just build-dll "--target-cpu=arm64"
     - if: target_platform == "linux-ppc64le"
       then: 
-       - just build-dll "--target-cpu=ppc64el"
+       - just build-dll "--target-cpu=powerpc64le"
     - if: target_platform == "linux-aarch64"
       then: 
        - just build-dll "--target-cpu=arm64"
@@ -45,6 +45,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler("cxx") }}
+    - llvm
     - if: not win
       then: pkg-config
     - if: target_platform == "osx-arm64"
@@ -64,6 +65,7 @@ requirements:
     - rust
     - babel
     - mypy
+    - llvm
     - if: target_platform != "osx-arm64"
       then:
         - just
