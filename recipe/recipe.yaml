@@ -17,40 +17,15 @@ source:
 build:     
   number: 1
   script:
-    - if: target_platform == "osx-arm64"
-      then: 
-       - just build-dll "--target-cpu=arm64"
-    - if: target_platform == "linux-ppc64le"
-      then: 
-       - just build-dll
-    - if: target_platform == "linux-aarch64"
-      then: 
-       - just build-dll "--aarch64-musl-compat"
-    - if: build_platform == target_platform
-      then: 
-       - just build-dll
+    - just build-dll
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
 
 
 requirements:
-  build:
-    - if: build_platform != target_platform
-      then:
-        - python
-        - cross-python_${{ target_platform }}
-        - rust
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
-    - ${{ compiler("cxx") }}
-    - if: not win
-      then: pkg-config
-    - just
-    - uv
-
   host:
-    - python
+    - python =3.11
     - pip
     - httplib2 =0.22.0
     - packaging >=25.0
@@ -62,6 +37,8 @@ requirements:
     - rust
     - babel
     - mypy
+    - uv
+    - pkg-config
   run:
     - python
 
