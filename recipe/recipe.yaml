@@ -57,6 +57,7 @@ requirements:
         - ${{ stdlib('c') }}
         - ${{ compiler("cxx") }}
     - if: aarch64
+      then: 
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler("cxx") }}
