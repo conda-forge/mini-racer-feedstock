@@ -34,8 +34,6 @@ requirements:
         - uv
         - cross-python_${{ target_platform }}
         - python  =3.11
-      else:
-        - python ${{ python_min }}.*
   host:
     - python =3.11
     - pip
