@@ -33,6 +33,7 @@ requirements:
         - just
         - uv
     - if: build_platform != target_platform    
+      then: 
         - cross-python_${{ target_platform }}
         - python  =3.11
   host:
