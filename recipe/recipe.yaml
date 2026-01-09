@@ -28,6 +28,7 @@ build:
 
 requirements:
   build:
+    - ${{ compiler("rust") }}
     - if: target_platform == "osx-arm64"
       then:
         - just
@@ -63,6 +64,8 @@ requirements:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler("cxx") }}
+        - ${{ compiler("rust") }}
+        - rust_linux-aarch64
     - if: target_platform != "osx-arm64"
       then:
         - just
