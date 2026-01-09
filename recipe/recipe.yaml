@@ -14,8 +14,7 @@ source:
   patches: 
     - if: osx
       then: 0001-Update-v8_build.py.patch
-    - if: target_platform == "linux-ppc64le"
-      then: 0002-Update-v8_build.py.patch
+
 build:     
   number: 2
   script:
@@ -23,9 +22,6 @@ build:
     - if: target_platform == "osx-arm64"
       then: 
        - just build-dll "--target-cpu=arm64"
-    - if: target_platform == "linux-ppc64le"
-      then: 
-       - just build-dll "--target-cpu=powerpc64le"
     - if: target_platform == "linux-aarch64"
       then: 
        - just build-dll "--target-cpu=arm64"
