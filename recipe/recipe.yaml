@@ -51,6 +51,9 @@ requirements:
     - if: ppc64le
       then:
         - python-librt
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler("cxx") }}
     - if: target_platform != "osx-arm64"
       then:
         - just
