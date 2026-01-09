@@ -54,6 +54,10 @@ requirements:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler("cxx") }}
+    - if: aarch64
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler("cxx") }}
     - if: target_platform != "osx-arm64"
       then:
         - just
