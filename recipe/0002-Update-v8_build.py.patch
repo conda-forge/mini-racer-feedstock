@@ -1,22 +1,30 @@
-From 7b8e72409cd134d044d28682247aabf377c9b5a8 Mon Sep 17 00:00:00 2001
+From 7b1d33d6d4375b5a981a2876d8429126cdeedc8d Mon Sep 17 00:00:00 2001
 From: HeavyTony2 <97621927+HeavyTony2@users.noreply.github.com>
-Date: Thu, 8 Jan 2026 17:06:21 -0500
+Date: Thu, 8 Jan 2026 19:29:47 -0500
 Subject: [PATCH] Update v8_build.py
 
 ---
- builder/v8_build.py | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ builder/v8_build.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/builder/v8_build.py b/builder/v8_build.py
-index e18696d..1b30d2e 100644
+index e18696d..b647b37 100644
 --- a/builder/v8_build.py
 +++ b/builder/v8_build.py
-@@ -253,7 +253,7 @@ def run_build(build_dir: Path, args: Args) -> None:
+@@ -231,6 +231,7 @@ def run_build(build_dir: Path, args: Args) -> None:
+         # ... from within the v8 directory.
+         "is_debug": "false",
+         "v8_use_external_startup_data": "false",
++        "v8_enable_temporal_support": "false",
+         "v8_monolithic": "true",
+         # From https://groups.google.com/g/v8-users/c/qDJ_XYpig_M/m/qe5XO9PZAwAJ:
+         "v8_monolithic_for_shared_library": "true",
+@@ -253,7 +254,7 @@ def run_build(build_dir: Path, args: Args) -> None:
          run(
              executable,
              "build/linux/sysroot_scripts/install-sysroot.py",
 -            "--arch=" + target_cpu,
-+            "--arch=ppc64el",
++            "--arch=ppc64el"
              cwd=get_v8_path(),
          )
  
