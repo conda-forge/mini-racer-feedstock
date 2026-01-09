@@ -20,7 +20,7 @@ build:
     - if: osx-arm64 or linux-aarch64
       then: 
         - just build-dll "--target-cpu=arm64" 
-       else:
+      else:
         - just build-dll
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
@@ -49,10 +49,7 @@ requirements:
     - mypy
     - uv
     - pkg-config
-   - if: target_platform != "osx-arm64"
-      then:
-        - just
-        - uv
+
   run:
     - python >=${{ python_min }}
 
