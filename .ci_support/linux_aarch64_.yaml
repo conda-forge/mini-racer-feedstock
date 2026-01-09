@@ -1,5 +1,3 @@
-args_to_build:
-- --target-cpu=arm64
 c_compiler:
 - gcc
 c_compiler_version:
