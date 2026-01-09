@@ -14,6 +14,8 @@ source:
   patches: 
     - if: osx
       then: 0001-Update-v8_build.py.patch
+    - if: ppc64le
+      then: 0002-Update-v8_build.py.patch
 build:     
   number: 2
   script:
