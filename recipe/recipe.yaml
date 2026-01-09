@@ -17,6 +17,7 @@ source:
 build:     
   number: 2
   script:
+    - uv sync
     - if: osx-arm64 or linux-aarch64
       then: 
         - just build-dll "--target-cpu=arm64" 
