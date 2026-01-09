@@ -27,6 +27,7 @@ build:
 requirements:
   build:
     - python ${{ python_min }}.*
+    - python_abi
     - if: target_platform == "osx-arm64"
       then:
         - just
@@ -40,12 +41,17 @@ requirements:
     - setuptools =80.9.0
     - types-setuptools >=80.9.0
     - wheel
-    - just
     - rust
     - babel
     - mypy
-    - uv
     - pkg-config
+    - if: ppc64le
+      then:
+        - python-librt
+    - if: target_platform != "osx-arm64"
+      then:
+        - just
+        - uv
 
   run:
     - python >=${{ python_min }}
