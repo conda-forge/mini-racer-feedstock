@@ -26,13 +26,14 @@ build:
 
 requirements:
   build:
-    - python ${{ python_min }}.*
-    - python_abi
     - if: target_platform == "osx-arm64"
       then:
         - just
         - uv
         - cross-python_${{ target_platform }}
+      else:
+        - python ${{ python_min }}.*
+        - python_abi
   host:
     - python =3.11
     - pip
