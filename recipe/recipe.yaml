@@ -56,7 +56,7 @@ requirements:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler("cxx") }}
-        - pixi-build-rust
+        - ${{ compiler("rust") }}
         - rust_linux-ppc64le
     - if: aarch64
       then: 
