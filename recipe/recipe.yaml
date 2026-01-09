@@ -28,7 +28,7 @@ build:
 
 requirements:
   build:
-    - ${{ compiler("rust") }}
+    - google-cloud-sdk
     - if: target_platform == "osx-arm64"
       then:
         - just
@@ -37,7 +37,6 @@ requirements:
         - python  =3.11
       else:
         - python ${{ python_min }}.*
-        - python_abi
   host:
     - python =3.11
     - pip
