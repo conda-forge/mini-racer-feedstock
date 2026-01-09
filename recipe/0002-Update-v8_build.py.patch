@@ -1,24 +1,36 @@
-From 7b8e72409cd134d044d28682247aabf377c9b5a8 Mon Sep 17 00:00:00 2001
+From 6a834b9a4b6b441aa79bb22684851698e21506e2 Mon Sep 17 00:00:00 2001
 From: HeavyTony2 <97621927+HeavyTony2@users.noreply.github.com>
-Date: Thu, 8 Jan 2026 17:06:21 -0500
+Date: Thu, 8 Jan 2026 18:59:06 -0500
 Subject: [PATCH] Update v8_build.py
 
 ---
- builder/v8_build.py | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ builder/v8_build.py | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/builder/v8_build.py b/builder/v8_build.py
-index e18696d..1b30d2e 100644
+index e18696d..136447d 100644
 --- a/builder/v8_build.py
 +++ b/builder/v8_build.py
-@@ -253,7 +253,7 @@ def run_build(build_dir: Path, args: Args) -> None:
-         run(
-             executable,
-             "build/linux/sysroot_scripts/install-sysroot.py",
+@@ -249,13 +249,13 @@ def run_build(build_dir: Path, args: Args) -> None:
+         # https://gitlab.alpinelinux.org/alpine/aports/-/issues/16210
+         opts["v8_enable_partition_alloc"] = "false"
+ 
+-    if is_linux() and target_cpu != get_local_v8_target_cpu():
+-        run(
+-            executable,
+-            "build/linux/sysroot_scripts/install-sysroot.py",
 -            "--arch=" + target_cpu,
-+            "--arch=ppc64el",
-             cwd=get_v8_path(),
-         )
+-            cwd=get_v8_path(),
+-        )
++   # if is_linux() and target_cpu != get_local_v8_target_cpu():
++     #   run(
++      #      executable,
++      #      "build/linux/sysroot_scripts/install-sysroot.py",
++      #      "--arch=" + target_cpu,
++       #     cwd=get_v8_path(),
++       # )
+ 
+     args_text = " ".join(f"{n}={v}" for n, v in opts.items())
  
 -- 
 2.34.1.windows.1
