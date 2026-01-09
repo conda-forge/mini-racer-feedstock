@@ -5,3 +5,6 @@ args_to_build:
  - "--target-cpu=arm64" # [arm64]
  - "--target-cpu=arm64" # [aarch64]
  #- "--target-cpu=powerpc64le" # [ppc64le]
+ 
+python_build:
+ - "3.11"

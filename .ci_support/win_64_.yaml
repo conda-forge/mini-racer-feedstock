@@ -2,6 +2,8 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+python_build:
+- '3.11'
 python_min:
 - '3.10'
 target_platform:

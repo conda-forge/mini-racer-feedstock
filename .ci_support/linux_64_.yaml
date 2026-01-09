@@ -4,6 +4,8 @@ channel_targets:
 - conda-forge main
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
+python_build:
+- '3.11'
 python_min:
 - '3.10'
 target_platform:
