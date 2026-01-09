@@ -28,7 +28,6 @@ build:
 
 requirements:
   build:
-    - google-cloud-sdk
     - if: target_platform == "osx-arm64"
       then:
         - just
@@ -58,6 +57,7 @@ requirements:
         - ${{ compiler("cxx") }}
         - ${{ compiler("rust") }}
         - rust_linux-ppc64le
+        - google-cloud-sdk
     - if: aarch64
       then: 
         - ${{ compiler('c') }}
@@ -65,6 +65,7 @@ requirements:
         - ${{ compiler("cxx") }}
         - ${{ compiler("rust") }}
         - rust_linux-aarch64
+        - google-cloud-sdk
     - if: target_platform != "osx-arm64"
       then:
         - just
