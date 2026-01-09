@@ -1,3 +1,5 @@
+args_to_build:
+- --target-cpu=powerpc64le
 c_compiler:
 - gcc
 c_compiler_version:
