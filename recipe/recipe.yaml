@@ -15,7 +15,7 @@ source:
     - if: osx
       then: 0001-Update-v8_build.py.patch
 build:     
-  number: 1
+  number: 2
   script:
     - just build-dll
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
