@@ -18,11 +18,7 @@ build:
   number: 2
   script:
     - uv sync
-    - if: osx-arm64 or linux-aarch64
-      then: 
-        - just build-dll "--target-cpu=arm64" 
-      else:
-        - just build-dll
+    - just build-dll ${{args_to_build}}
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     binary_relocation: ${{ false if osx else true }}
