@@ -20,12 +20,9 @@ build:
     - if: target_platform == "osx-arm64"
       then: 
        - just build-dll "--target-cpu=arm64"
-    - if: target_platform == "linux-ppc64le"
-      then: 
-       - just build-dll
     - if: target_platform == "linux-aarch64"
       then: 
-       - just build-dll "--aarch64-musl-compat"
+       - just build-dll "--aarch64-musl-compat"  "--target-cpu=arm64"
     - if: build_platform == target_platform
       then: 
        - just build-dll
