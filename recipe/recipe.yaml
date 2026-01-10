@@ -71,6 +71,8 @@ tests:
         - py_mini_racer
         - py_mini_racer._mini_racer
       pip_check: true
+  - script:
+      - python -c "from py_mini_racer import MiniRacer; ctx = MiniRacer(); print(ctx.eval('1+1'))"
 
 about:
   summary: Minimal, modern embedded V8 for Python.
