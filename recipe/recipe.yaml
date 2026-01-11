@@ -11,27 +11,22 @@ package:
 source:
   url: https://github.com/bpcreech/PyMiniRacer/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 51028ec0bb267abc4537bcb90dc5b236273cefde0566ca368bec09e362c4a477
+  skip: win or osx
   patches: 
     - if: osx
       then: 0001-Update-v8_build.py.patch
 build:     
   number: 1
   script:
-    - if: target_platform == "osx-arm64"
-      then: 
-       - just build-dll "--target-cpu=arm64"
     - if: target_platform == "linux-ppc64le"
       then: 
-       - just build-dll
-    - if: target_platform == "linux-aarch64"
-      then: 
-       - just build-dll "--aarch64-musl-compat"
+       - just build-dll "--v8_target-cpu=powerpc64le"
     - if: build_platform == target_platform
       then: 
        - just build-dll
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  dynamic_linking:
-    binary_relocation: ${{ false if osx else true }}
+  #dynamic_linking:
+  #  binary_relocation: ${{ false if osx else true }}
 
 
 requirements:
