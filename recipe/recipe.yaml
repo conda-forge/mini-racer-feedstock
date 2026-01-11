@@ -22,7 +22,7 @@ build:
   script:
     - if: target_platform == "linux-ppc64le"
       then: 
-       - just build-dll "--v8-target-cpu=powerpc64le"
+       - just build-dll
     - if: build_platform == target_platform
       then: 
        - just build-dll
