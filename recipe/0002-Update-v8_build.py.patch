@@ -1,35 +1,26 @@
-From 67b739bf1868f7d47925bb53fabdf07849884da5 Mon Sep 17 00:00:00 2001
+From 28f2ba3341da93fab298237d55b5ba67997a274f Mon Sep 17 00:00:00 2001
 From: HeavyTony2 <97621927+HeavyTony2@users.noreply.github.com>
-Date: Sat, 10 Jan 2026 20:20:16 -0500
+Date: Sat, 10 Jan 2026 21:18:47 -0500
 Subject: [PATCH] Update v8_build.py
 
 ---
- builder/v8_build.py | 5 +++++
- 1 file changed, 5 insertions(+)
+ builder/v8_build.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/builder/v8_build.py b/builder/v8_build.py
-index e18696d..e75c532 100644
+index 4800ac5..3300160 100644
 --- a/builder/v8_build.py
 +++ b/builder/v8_build.py
-@@ -61,6 +61,10 @@ def get_local_v8_target_cpu() -> str:
-         return "s390x"
-     if m == "ppc64":
-         return "ppc64"
-+    if m == "ppc64le":
-+        return "powerpc64le"
-+    if m == "powerpc64le":
-+        return "powerpc64le"      
- 
-     raise UnknownArchError(m)
- 
-@@ -291,6 +295,7 @@ class Args:
-     fetch_only: bool
-     skip_fetch: bool
-     aarch64_musl_compat: bool
-+    v8_target_cpu: str | None
- 
- 
- def build_v8(args: Args) -> None:
+@@ -234,8 +234,7 @@ def run_build(build_dir: Path, args: Args) -> None:
+         "v8_monolithic": "true",
+         # From https://groups.google.com/g/v8-users/c/qDJ_XYpig_M/m/qe5XO9PZAwAJ:
+         "v8_monolithic_for_shared_library": "true",
+-        "target_cpu": f'"{target_cpu}"',
+-        "v8_target_cpu": f'"{target_cpu}"',
++        "v8_target_cpu": "powerpc64le",
+         # We sneak our C++ frontend into V8 as a symlinked "custom_dep" so
+         # that we can reuse the V8 build system to make our dynamic link
+         # library:
 -- 
 2.51.0.windows.1
 
