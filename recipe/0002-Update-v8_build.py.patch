@@ -26,7 +26,7 @@ index e18696d..e75c532 100644
      fetch_only: bool
      skip_fetch: bool
      aarch64_musl_compat: bool
-+    v8_target_cpu: bool
++    v8_target_cpu: str | None
  
  
  def build_v8(args: Args) -> None:
