@@ -61,6 +61,7 @@ tests:
       pip_check: true
   - script:
       - python -c "from py_mini_racer import MiniRacer; ctx = MiniRacer(); print(ctx.eval('1+1'))"
+      - conda --version
 
 about:
   summary: Minimal, modern embedded V8 for Python.
