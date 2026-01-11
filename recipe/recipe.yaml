@@ -15,17 +15,14 @@ source:
     - if: osx
       then: 0001-Update-v8_build.py.patch
 build:     
-  number: 1
+  number: 2
   script:
     - if: target_platform == "osx-arm64"
       then: 
        - just build-dll "--target-cpu=arm64"
-    - if: target_platform == "linux-ppc64le"
-      then: 
-       - just build-dll
     - if: target_platform == "linux-aarch64"
       then: 
-       - just build-dll "--aarch64-musl-compat"
+       - just build-dll "--aarch64-musl-compat"  "--target-cpu=arm64"
     - if: build_platform == target_platform
       then: 
        - just build-dll
@@ -69,7 +66,10 @@ tests:
   - python:
       imports:
         - py_mini_racer
+        - py_mini_racer._mini_racer
       pip_check: true
+  - script:
+      - python -c "from py_mini_racer import MiniRacer; ctx = MiniRacer(); print(ctx.eval('1+1'))"
 
 about:
   summary: Minimal, modern embedded V8 for Python.
