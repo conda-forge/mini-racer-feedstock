@@ -15,7 +15,8 @@ source:
     - if: osx
       then: 0001-Update-v8_build.py.patch
 build:     
-  number: 2
+  noarch: generic
+  number: 4
   script:
     - if: target_platform == "osx-arm64"
       then: 
@@ -35,7 +36,7 @@ requirements:
   build:
     - if: build_platform != target_platform
       then:
-        - python
+        - python ${{ python_min }}*
         - cross-python_${{ target_platform }}
         - rust
     - ${{ compiler('c') }}
@@ -47,7 +48,7 @@ requirements:
     - uv
 
   host:
-    - python
+    - python ${{ python_min }}*
     - pip
     - httplib2 =0.22.0
     - packaging >=25.0
@@ -60,7 +61,7 @@ requirements:
     - babel
     - mypy
   run:
-    - python
+    - python >=${{ python_min }}
 
 tests:
   - python:
@@ -68,7 +69,12 @@ tests:
         - py_mini_racer
         - py_mini_racer._mini_racer
       pip_check: true
-  - script:
+      python_version: 
+  - requirements: ${{ python_min }}*
+      run:
+        - pip
+        - python ${{ python_min }}*
+    script:
       - python -c "from py_mini_racer import MiniRacer; ctx = MiniRacer(); print(ctx.eval('1+1'))"
 
 about:
