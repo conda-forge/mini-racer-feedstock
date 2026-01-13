@@ -69,8 +69,8 @@ tests:
         - py_mini_racer
         - py_mini_racer._mini_racer
       pip_check: true
-      python_version: 
-  - requirements: ${{ python_min }}*
+      python_version: ${{ python_min }}*
+  - requirements:
       run:
         - pip
         - python ${{ python_min }}*
