@@ -15,7 +15,7 @@ source:
     - if: osx
       then: 0001-Update-v8_build.py.patch
 build:
-  number: 3
+  number: 4
   skip: ppc64le #see issue 18
   script:
     - if: target_platform == "osx-arm64"
