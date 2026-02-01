@@ -11,9 +11,9 @@ package:
 source:
   url: https://github.com/bpcreech/PyMiniRacer/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 821aae5d2166c8a3a45a512a5a1f3b581f5c6da76e630ca52fa3af4f27093a50
- # patches:
-   # - if: osx
-    #  then: 0001-Update-v8_build.py.patch
+  patches:
+    - if: osx
+      then: 0001-Update-v8_build.py.patch
 build:
   number: 0
   skip: ppc64le #see issue 18
@@ -60,12 +60,6 @@ requirements:
     - rust
     - babel
     - mypy
-    - if: target_platform == "osx-64"
-      then:
-       - sdkroot_env_osx-64 =26.0
-    - if: target_platform == "osx-arm64"
-      then:
-       - sdkroot_env_osx-arm64 =26.0   
   run:
     - python
 
