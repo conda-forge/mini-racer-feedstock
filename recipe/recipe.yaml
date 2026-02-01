@@ -60,10 +60,10 @@ requirements:
     - rust
     - babel
     - mypy
-    - if: osx-64
+    - if: target_platform == "osx-64"
       then:
        - sdkroot_env_osx-64 =26.0
-    - if: osx-arm64
+    - if: target_platform == "osx-arm64"
       then:
        - sdkroot_env_osx-arm64 =26.0   
   run:
