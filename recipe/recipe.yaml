@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mini-racer
-  version: "0.14.0"
+  version: "0.14.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,12 +10,12 @@ package:
 
 source:
   url: https://github.com/bpcreech/PyMiniRacer/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 51028ec0bb267abc4537bcb90dc5b236273cefde0566ca368bec09e362c4a477
+  sha256: 821aae5d2166c8a3a45a512a5a1f3b581f5c6da76e630ca52fa3af4f27093a50
   patches:
     - if: osx
       then: 0001-Update-v8_build.py.patch
 build:
-  number: 4
+  number: 0
   skip: ppc64le #see issue 18
   script:
     - if: target_platform == "osx-arm64"
@@ -70,8 +70,8 @@ tests:
         - py_mini_racer._mini_racer
       pip_check: true
   - script:
-      -  if: not match(python, "=3.13")
-         then: python -c "from py_mini_racer import MiniRacer; ctx = MiniRacer(); print(ctx.eval('1+1'))"
+      - if: not match(python, "=3.13")
+        then: python -c "from py_mini_racer import MiniRacer; ctx = MiniRacer(); print(ctx.eval('1+1'))"
 
 about:
   summary: Minimal, modern embedded V8 for Python.
