@@ -1,0 +1,53 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: HeavyTony2 <97621927+HeavyTony2@users.noreply.github.com>
+Date: Tue, 22 Sep 2026 00:00:00 -0500
+Subject: [PATCH] Set host_cpu explicitly when cross-compiling
+
+When target_cpu differs from the machine actually running the build
+(e.g. cross-compiling linux-aarch64 or osx-arm64 packages on an
+x86_64 build agent), GN's automatic host_cpu detection can end up
+mismatched with the host build tools V8 downloads (clang/rustc used
+to build codegen tools that must run on the build machine, not on
+the target). This manifests as:
+
+    clang++: cannot execute binary file: Exec format error
+    OSError: [Errno 8] Exec format error: '.../rust-toolchain/bin/rustc'
+
+Explicitly pass host_cpu/v8_host_cpu to GN whenever target_cpu is
+overridden away from the local architecture, so the host build tools
+toolchain matches the machine that actually runs the build.
+---
+ builder/v8_build.py | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/builder/v8_build.py b/builder/v8_build.py
+index 4800ac5..1234567 100644
+--- a/builder/v8_build.py
++++ b/builder/v8_build.py
+@@ -223,6 +223,7 @@ def run_build(build_dir: Path, args: Args) -> None:
+     # args.gn with minimal arguments, and running "gn gen ...".
+
+     target_cpu = args.target_cpu or get_local_v8_target_cpu()
++    host_cpu = get_local_v8_target_cpu()
+
+     opts = {
+         # These following settings are based those found for the "x64.release"
+@@ -242,6 +243,16 @@ def run_build(build_dir: Path, args: Args) -> None:
+         "v8_custom_deps": '"//custom_deps/mini_racer"',
+     }
+
++    if target_cpu != host_cpu:
++        # When cross-compiling, GN's default host_cpu detection can pick the
++        # wrong architecture for the host build tools (e.g. the clang and
++        # rustc binaries used to build codegen tools that must run on the
++        # machine doing the build, not on the target). Tell it explicitly:
++        # https://github.com/bpcreech/PyMiniRacer/issues (Exec format error
++        # building custom_deps/mini_racer while cross-compiling to arm64).
++        opts["host_cpu"] = f'"{host_cpu}"'
++        opts["v8_host_cpu"] = f'"{host_cpu}"'
++
+     if args.aarch64_musl_compat:
+         # Avoid "Error relocating /PyMiniRacer/src/py_mini_racer/libmini_racer.so:
+         #     unsupported relocation type 1032"
+--
+2.34.1
