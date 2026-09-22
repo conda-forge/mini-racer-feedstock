@@ -5,7 +5,7 @@
 
 [workspace]
 name = "mini-racer-feedstock"
-version = "2026.9.22"  # conda-smithy version used to generate this file
+version = "2026.9.19"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/mini-racer-feedstock"
 authors = ["@conda-forge/mini-racer"]
 channels = ["conda-forge"]
