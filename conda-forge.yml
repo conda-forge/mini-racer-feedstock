@@ -23,5 +23,3 @@ workflow_settings:
     - provider: azure
       os: win
       value: C:\Miniforge
-build_platform:
-  linux_aarch64: linux_64 #Complicated to build so cross-compilation is kept
